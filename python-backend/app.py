@@ -587,17 +587,7 @@ def markets():
 # ─── Start ────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    print("""
-╔══════════════════════════════════════════════════╗
-║      🌾  FarmWise Advisor — Python Backend       ║
-║      http://localhost:5000                       ║
-╠══════════════════════════════════════════════════╣
-║  POST /api/analyze-soil   (multipart image)      ║
-║  POST /api/recommendations                       ║
-║  GET  /api/weather?lat=&lon=                     ║
-║  GET  /api/geocode?location=                     ║
-║  GET  /api/markets                               ║
-║  GET  /api/health                                ║
-╚══════════════════════════════════════════════════╝
-    """)
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    print(f"🌾 FarmWise Advisor starting on port {port}...")
+    app.run(host="0.0.0.0", port=port, debug=False)
